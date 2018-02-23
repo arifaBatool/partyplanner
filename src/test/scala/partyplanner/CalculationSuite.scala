@@ -50,6 +50,7 @@ class CalculationSuite extends TestUtil {
   test("totalOnePerson") {
     val party = Party("Party1", List("apple", "coffee"))
     val party1 = Party("Party1", List("banaras"))
+
     val prices = List(
       Price("apple", 2),
       Price("other", 3),
@@ -64,11 +65,11 @@ class CalculationSuite extends TestUtil {
       Consumption("banaras", 0.4)
     )
 
+
     assert(totalOnePerson(party, prices, consumptions) == 1.0)
     assertThrows[PartyPlannerException](totalOnePerson(party1, prices, consumptions))
     light = 1
   }
-
 
   test("totalAmount") {
     assert(totalAmount(2, 100) == 200)
